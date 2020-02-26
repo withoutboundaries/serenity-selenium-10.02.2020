@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(SerenityRunner.class)
-
 public class LoginTest extends BaseTest {
 
     @Test
@@ -15,15 +14,6 @@ public class LoginTest extends BaseTest {
                 .auth()
                 .login("a@b.c", "P@ssword123")
                 .validatePageHeader("Don't miss your next opportunity. Sign in to stay updated on your professional world.");
-    }
-
-    @Test
-    public void positiveLoginTest() {
-
-        user
-                .auth()
-                .login(
-                        "petrenkovira19890206@gmail.com", "love19890206love2");
     }
 
 

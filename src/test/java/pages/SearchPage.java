@@ -2,8 +2,6 @@ package pages;
 
 import net.serenitybdd.core.pages.PageObject;
 
-import net.thucydides.core.annotations.At;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +32,7 @@ public class SearchPage extends PageObject {
 
     }
 
-    public List<String> getSearchResultsList() {
+   /* public List<String> getSearchResultsList() {
         List<String> searchResultsList = new ArrayList<String>();
         for (WebElement searchResult : searchResults) {
             searchResultsList.add(searchResult.getText());
@@ -42,7 +40,18 @@ public class SearchPage extends PageObject {
             searchResultsList.add(searchResult.getText());
         }
         return searchResultsList;
-    }
+    }*/
+
+   public List<String> getSearchResultsList (){
+       List <String> searchResultList =new ArrayList<>();
+       //for each WebElement searchResult in searchResults List
+       for (WebElement searchResult: searchResults){
+           evaluateJavascript("arguments[0].scrollIntoView();", searchResult);
+           searchResultList.add (searchResult.getText());
+
+       }
+       return searchResultList;
+   }
 
 
 
