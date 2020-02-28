@@ -2,6 +2,8 @@ package tests;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.junit.annotations.TestData;
+
+import org.apache.xpath.operations.String;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +19,7 @@ public class SearchTest extends BaseTest {
 
 
     public SearchTest(String searchTerm) {
-        this.searchTerm = searchTerm;
+        this.searchTerm=searchTerm;
     }
 
     @TestData
@@ -34,11 +36,14 @@ public class SearchTest extends BaseTest {
 
         user
                 .auth()
+                .openLandingPage()
                 .login("petrenkovira19890206@gmail.com", "love19890206love2");
     }
 
     @Test
     public void searchBySearchTermTest() {
+    String[] relevantResults = {"HR", "hr", "Human Resources", "HUMAN RESOURCES"};
+
         user
                 .validatePageTitle("")
                 .homePage()

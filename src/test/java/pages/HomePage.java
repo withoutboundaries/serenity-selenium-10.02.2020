@@ -3,6 +3,7 @@ package pages;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.At;
 
+import org.apache.xpath.operations.String;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,8 +32,6 @@ public class HomePage extends PageObject {
         return profileNavItem.isDisplayed();
     }
 
-
-    String searchTerm="hr";
 
     public boolean isProfileMenuItemDisplayed() {
         return profileNavItem.isDisplayed();

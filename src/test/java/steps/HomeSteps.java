@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.apache.xpath.operations.String;
 import org.junit.Assert;
 import pages.HomePage;
 
