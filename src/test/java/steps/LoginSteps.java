@@ -34,12 +34,6 @@ public class LoginSteps extends ScenarioSteps {
   }
 
 
-    @Then("I should see Home page")
-    public LoginSteps validateHomePageIsLoaded() {
-        Assert.assertTrue("Page is not loaded.", homePage.isPageLoaded());
-        return this;
-    }
-
     @Step
     public LoginSteps validatePageHeader(String expectedMessage) {
         Assert.assertEquals("Wrong header message.", expectedMessage, loginChallenge.getHeaderMessageText());

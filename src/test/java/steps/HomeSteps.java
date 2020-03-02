@@ -11,7 +11,7 @@ public class HomeSteps extends ScenarioSteps {
     private String searchTerm;
 
 
-
+    @Then("I should see Home page")
     @Step
     public HomeSteps validateHomePageIsLoaded() {
         Assert.assertTrue("Page is not loaded.", homePage.isPageLoaded());
