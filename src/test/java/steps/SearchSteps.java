@@ -12,6 +12,7 @@ import pages.SearchPage;
 import java.util.List;
 
 
+import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class SearchSteps extends ScenarioSteps {
@@ -19,7 +20,7 @@ public class SearchSteps extends ScenarioSteps {
 
 
 
-    @Then("I receive relevant results")
+    @Then("I should receive $searchTem in each search result")
     @Step
     public SearchSteps verifyEachResultContains(String searchTerm) {
         List<String> searchResultsList = searchPage.getSearchResultsList();
@@ -28,5 +29,13 @@ public class SearchSteps extends ScenarioSteps {
     }
 
 
+    @Then("I should see expected search term in each search result")
+    @Step
+    public SearchSteps verifyEachResultContains() {
+        List<String> searchResultsList = searchPage.getSearchResultsList();
+        Assert.assertThat("SearchTerm not found.", searchResultsList,
+                Every.everyItem(anyOf (containsString ("hr"), containsString ("HR") )));
+        return this;
+    }
 
 }
