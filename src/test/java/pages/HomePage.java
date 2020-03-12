@@ -2,6 +2,7 @@ package pages;
 
 import net.thucydides.core.annotations.At;
 import net.thucydides.core.pages.PageObject;
+import org.jbehave.core.annotations.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,7 @@ public class HomePage extends PageObject {
 
     @FindBy(xpath = "//li[@id='profile-nav-item']")
     private WebElement profileNavItem;
+
 
     public void searchFor(String searchTerm) {
         searchField.sendKeys(searchTerm);
